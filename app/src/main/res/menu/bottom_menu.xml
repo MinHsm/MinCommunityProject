@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="首页"
+        android:icon="@drawable/bottom_btn1"
+        app:cnb_iconColor="@color/white"
+        app:cnb_backgroundColor="@color/orange"/>
+    <item
+        android:id="@+id/Board"
+        android:title="排行"
+        android:icon="@drawable/bottom_btn2"
+        app:cnb_iconColor="@color/white"
+        app:cnb_backgroundColor="@color/orange"/>
+    <item
+        android:id="@+id/favorites"
+        android:title="收藏"
+        android:icon="@drawable/bottom_btn3"
+        app:cnb_iconColor="@color/white"
+        app:cnb_backgroundColor="@color/orange"/>
+    <item
+        android:id="@+id/profile"
+        android:title="个人"
+        android:icon="@drawable/bottom_btn4"
+        app:cnb_iconColor="@color/white"
+        app:cnb_backgroundColor="@color/orange"/>
+</menu>
