@@ -9,5 +9,5 @@
     <color name="green">#34d287</color>
     <color name="grey">#e9e7f2</color>
     <color name="purple">#8c72ed</color>
-    <color name="light_grey">#5F5F5F</color>
+    <color name="light_grey">#FF888888</color>
 </resources>

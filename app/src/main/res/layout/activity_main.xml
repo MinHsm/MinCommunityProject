@@ -67,6 +67,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="关注"
+                    android:textStyle="bold"
                     android:textColor="@color/light_grey"
                     android:textSize="16sp" />
 
@@ -90,6 +91,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="学习"
+                    android:textStyle="bold"
                     android:textColor="@color/light_grey"
                     android:textSize="16sp" />
 
@@ -100,6 +102,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:text="问答"
                     android:textColor="@color/light_grey"
                     android:textSize="16sp" />
@@ -111,6 +114,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
+                android:textStyle="bold"
                     android:text="直播"
                     android:textColor="@color/light_grey"
                     android:textSize="16sp" />
