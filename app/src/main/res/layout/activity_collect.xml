@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Activity.LeaderActivity"
+
+        android:background="@color/grey"
         tools:ignore="MissingDefaultResource">
 
         <ScrollView
