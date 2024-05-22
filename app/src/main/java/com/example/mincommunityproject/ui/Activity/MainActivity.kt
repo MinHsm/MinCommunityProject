@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             menu.setOnItemSelectedListener {
                 if (it == R.id.Board) {
                     startActivity(Intent(this@MainActivity, CollectActivity::class.java))
+                } else if (it == R.id.profile) {
+                    startActivity(Intent(this@MainActivity, PersonageActivity::class.java))
                 }
             }
             // 设置按钮点击事件，跳转到问题活动页面并传递问题列表数据

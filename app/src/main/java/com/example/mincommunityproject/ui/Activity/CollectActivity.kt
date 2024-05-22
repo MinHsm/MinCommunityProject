@@ -53,6 +53,8 @@ class CollectActivity : AppCompatActivity() {
             bottomMenu.setOnItemSelectedListener {
                 if (it == R.id.home) {
                     startActivity(Intent(this@CollectActivity, MainActivity::class.java))
+                } else if (it == R.id.profile) {
+                    startActivity(Intent(this@CollectActivity, PersonageActivity::class.java))
                 }
             }
 
