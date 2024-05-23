@@ -39,9 +39,9 @@
 
                 <ImageView
                     android:id="@+id/main_item_imgCard_profile"
-                    android:layout_width="30dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:src="@color/grey" />
+                    android:src="@drawable/person1" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -49,9 +49,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_marginStart="10dp"
                 android:text="@{mItem.UName}"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/main_item_imgCard"
                 app:layout_constraintTop_toTopOf="parent"
@@ -84,8 +85,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:textColor="@color/black"
                 android:text="@{mItem.ITitle}"
                 android:textSize="22sp"
+                android:layout_marginEnd="10dp"
                 android:textStyle="bold" />
 
             <ImageView

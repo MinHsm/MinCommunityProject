@@ -19,7 +19,7 @@
             android:name=".ui.Activity.CollectActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Activity.RankingListActivity"
+            android:name=".ui.Activity.MessageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.Activity.MainActivity"

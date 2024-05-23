@@ -16,8 +16,8 @@
         app:cnb_backgroundColor="@color/orange"/>
     <item
         android:id="@+id/favorites"
-        android:title="收藏"
-        android:icon="@drawable/bottom_btn3"
+        android:title="消息"
+        android:icon="@drawable/icon_xiaoxi"
         app:cnb_iconColor="@color/white"
         app:cnb_backgroundColor="@color/orange"/>
     <item
