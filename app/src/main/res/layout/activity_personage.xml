@@ -32,7 +32,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:padding="2dp"
-                    android:src="@drawable/person1"
+                    android:src="@drawable/icon_moren"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:text="Login"
+                    android:text="登录"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -89,7 +89,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="7dp"
-                        android:text="59"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -117,7 +117,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="7dp"
-                        android:text="6"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -145,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="7dp"
-                        android:text="2395"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -173,7 +173,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="7dp"
-                        android:text="13W"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />

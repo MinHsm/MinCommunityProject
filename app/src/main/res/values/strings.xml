@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MinCommunityProject</string>
+    <string name="hint_username_login">用户名/邮箱/手机号</string>
+    <string name="hint_password_login">密码</string>
+    <string name="forget_password_login">忘记密码</string>
+    <string name="hint_username_register">请输入注册邮箱</string>
+    <string name="hint_password_register">请输入验证码</string>
+    <string name="forget_password_register">获取验证码</string>
+    <!-- strings.xml -->
+    <string name="exit_confirmation">确定要退出吗？</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+
+
 </resources>

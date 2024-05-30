@@ -55,6 +55,8 @@ class CollectActivity : AppCompatActivity() {
                     startActivity(Intent(this@CollectActivity, MainActivity::class.java))
                 } else if (it == R.id.profile) {
                     startActivity(Intent(this@CollectActivity, PersonageActivity::class.java))
+                } else if (it == R.id.favorites) {
+                    startActivity(Intent(this@CollectActivity, MessageActivity::class.java))
                 }
             }
 
