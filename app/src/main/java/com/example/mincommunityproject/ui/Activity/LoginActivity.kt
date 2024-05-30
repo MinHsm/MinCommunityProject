@@ -3,13 +3,17 @@ package com.example.mincommunityproject.ui.Activity
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.example.mincommunityproject.R
 import com.example.mincommunityproject.databinding.ActivityLoginBinding
+import com.example.mincommunityproject.model.LoginResponse
 import com.example.mincommunityproject.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -30,6 +34,25 @@ class LoginActivity : AppCompatActivity() {
             loginIconBack.setOnClickListener {
                 onBackPressed()
             }
+        }
+
+        viewModel.loginResult.observe(this, Observer { result ->
+            result.onSuccess { loginResponse ->
+                //成功获取token和用户信息
+                val token = loginResponse.data.token
+                val customer = loginResponse.data.customer
+
+                Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show()
+            }.onFailure { throwable ->
+                Toast.makeText(this, "登录失败:${throwable.message}", Toast.LENGTH_SHORT).show()
+                Log.d("LoginMsg","错误信息:${throwable.message}")
+            }
+        })
+
+        binding.loginBtnLogin.setOnClickListener {
+            val email = binding.loginEtUn.toString()
+            val pwd = binding.loginEtPwd.toString()
+            viewModel.login(email, pwd)
         }
 
     }
