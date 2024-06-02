@@ -15,7 +15,11 @@ import com.example.mincommunityproject.model.CollectUserModel
 import com.example.mincommunityproject.model.MsgItemModel
 import com.example.mincommunityproject.ui.Adapter.MsgItemAdapter
 import com.example.mincommunityproject.viewmodel.MessageViewModel
-
+/**
+ * 消息页面
+ * @author Min
+ * @time 2024/6/2 20:35
+ */
 class MessageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMessageBinding
@@ -24,18 +28,21 @@ class MessageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_message)
+        //绑定xml文件
         binding = DataBindingUtil.setContentView(this, R.layout.activity_message)
         binding.lifecycleOwner = this
 
+        //绑定viewmodel
         viewModel = ViewModelProvider(this).get(MessageViewModel::class.java)
 
+        //设置顶部颜色
         val window: Window = this@MessageActivity.window
         window.statusBarColor = ContextCompat.getColor(this@MessageActivity, R.color.blue)
 
         binding.apply {
             // 设置底部菜单选中项为主页
             menu.setItemSelected(R.id.favorites)
+            //设置跳转
             menu.setOnItemSelectedListener {
                 viewModel?.selectMenuItem(it)
                 when (it) {
@@ -61,11 +68,12 @@ class MessageActivity : AppCompatActivity() {
                     )
                 }
             }
-            // 设置按钮点击事件，跳转到问题活动页面并传递问题列表数据
 
+            //绑定条目数据
             val list = viewModel.loadMessageList()
             msgItemAdapter.differ.submitList(list)
 
+            //绑定条目控件
             msgRvItem.apply {
                 layoutManager = LinearLayoutManager(this@MessageActivity)
                 adapter = msgItemAdapter

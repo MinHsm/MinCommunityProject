@@ -11,12 +11,20 @@ import com.example.mincommunityproject.databinding.ActivityCollectBinding
 import com.example.mincommunityproject.model.CollectUserModel
 import com.example.mincommunityproject.ui.Adapter.CollectItemAdapter
 
+/**
+ * 排行榜页面
+ * @author Min
+ * @time 2024/6/2 20:13
+ */
 class CollectActivity : AppCompatActivity() {
+    //使用了binding
     lateinit var binding: ActivityCollectBinding
+    //条目的适配器
     private val leaderAdapter by lazy { CollectItemAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //绑定xml文件
         binding = ActivityCollectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

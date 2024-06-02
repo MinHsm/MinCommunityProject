@@ -19,7 +19,11 @@ import com.example.mincommunityproject.databinding.ActivityMainBinding
 import com.example.mincommunityproject.model.MainItem
 import com.example.mincommunityproject.ui.Adapter.MainItemAdapter
 import com.example.mincommunityproject.viewmodel.MainViewModel
-
+/**
+ * 主页面
+ * @author Min
+ * @time 2024/6/2 20:18
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -29,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //绑定页面
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
 
@@ -36,12 +41,14 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         binding.viewModel = viewModel
 
+        //设置顶部颜色
         val window: Window = this@MainActivity.window
         window.statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.blue)
 
         binding.apply {
             // 设置底部菜单选中项为主页
             menu.setItemSelected(R.id.home)
+            //底部菜单被点击时跳转相应的页面
             menu.setOnItemSelectedListener {
                 viewModel?.selectMenuItem(it)
                 when (it) {
@@ -71,10 +78,13 @@ class MainActivity : AppCompatActivity() {
         //头部标题变化
         setupTopItemSelection()
 
+        //监听条目
         viewModel.itemList.observe(this, Observer { itemList ->
             Log.d("MainActivity", "Item list size:${itemList.size}")
+            //绑定数据
             itemAdapter = MainItemAdapter(this@MainActivity, itemList)
 
+            //绑定控件
             binding.lvMainItem.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@MainActivity)
