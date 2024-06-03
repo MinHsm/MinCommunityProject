@@ -6,15 +6,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.mincommunityproject.model.MainItem
 import com.example.mincommunityproject.model.MsgItemModel
-
+/**
+ * 消息页面ViewModel
+ * @author ming
+ * @time 2024/6/3 10:06
+ */
 class MessageViewModel(application: Application) : AndroidViewModel(application) {
 
+    //监听
     private val _itemList = MutableLiveData<List<MainItem>>()
     val itemList: LiveData<List<MainItem>> get() = _itemList
 
     private val _selectedMenuItem = MutableLiveData<Int>()
     val selectedMenuItem: LiveData<Int> get() = _selectedMenuItem
 
+    //获取底部导航的值
     fun selectMenuItem(menuItemId: Int) {
         _selectedMenuItem.value = menuItemId
     }

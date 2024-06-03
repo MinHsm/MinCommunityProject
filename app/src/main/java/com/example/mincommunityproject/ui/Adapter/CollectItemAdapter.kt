@@ -8,7 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mincommunityproject.databinding.ViewholderLeadersBinding
 import com.example.mincommunityproject.model.CollectUserModel
-
+/**
+ * 排行榜条目适配器
+ * @author ming
+ * @time 2024/6/3 09:14
+ */
 class CollectItemAdapter : RecyclerView.Adapter<CollectItemAdapter.ViewHolder>() {
 
     // 内部 ViewHolder 类，用于绑定视图
