@@ -15,6 +15,8 @@ import com.example.mincommunityproject.R
 import com.example.mincommunityproject.databinding.ActivityLoginBinding
 import com.example.mincommunityproject.model.LoginResponse
 import com.example.mincommunityproject.viewmodel.LoginViewModel
+import kotlin.math.log
+
 /**
  * 登录页面
  * @author Min
@@ -43,24 +45,27 @@ class LoginActivity : AppCompatActivity() {
         }
 
         //监听viewmodel里的方法
-        viewModel.loginResult.observe(this, Observer { result ->
+        viewModel.loginResult.observe(this) { result ->
             result.onSuccess { loginResponse -> //成功
-                //成功获取token和用户信息
-                val token = loginResponse.data.token
-                val customer = loginResponse.data.customer
-
-                Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show()
+                val data = loginResponse.data
+                if (data != null) {
+                    //成功获取token和用户信息
+                    val token = data.token
+                    Toast.makeText(this, "登录成功:hello,${loginResponse.data.customer.firstName}", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "登录数据为空", Toast.LENGTH_SHORT).show()
+                }
             }.onFailure { throwable -> //失败
                 Toast.makeText(this, "登录失败:${throwable.message}", Toast.LENGTH_SHORT).show()
                 Log.d("LoginMsg", "错误信息:${throwable.message}")
             }
-        })
+        }
 
         //监听登录按钮
         binding.loginBtnLogin.setOnClickListener {
             //数据绑定为输入框
-            val email = binding.loginEtUn.toString()
-            val pwd = binding.loginEtPwd.toString()
+            val email = binding.loginEtUn.text.toString()
+            val pwd = binding.loginEtPwd.text.toString()
             //调用view model里的登录方法
             viewModel.login(email, pwd)
         }

@@ -17,39 +17,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.lang.Exception
+
 /**
  * 登录的viewmodel
  * @author ming
  * @time 2024/6/3 09:58
  */
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
-
-    //初始化信息
-    private val hintUsernameLogin: String = application.getString(R.string.hint_username_login)
-    private val hintPasswordLogin: String = application.getString(R.string.hint_password_login)
-    private val forgetPasswordLogin: String = application.getString(R.string.forget_password_login)
-    private val hintUsernameRegister: String =
-        application.getString(R.string.hint_username_register)
-    private val hintPasswordRegister: String =
-        application.getString(R.string.hint_password_register)
-    private val forgetPasswordRegister: String =
-        application.getString(R.string.forget_password_register)
-
-    // LiveData 用于监控登录模式状态
-    private val _isLoginMode = MutableLiveData(true)
-    val isLoginMode: LiveData<Boolean> get() = _isLoginMode
-
-    // LiveData 用于监控用户名提示
-    private val _hintUsername = MutableLiveData(hintUsernameLogin)
-    val hintUsername: LiveData<String> get() = _hintUsername
-
-    // LiveData 用于监控密码提示
-    private val _hintPassword = MutableLiveData(hintPasswordLogin)
-    val hintPassword: LiveData<String> get() = _hintPassword
-
-    // 监控忘记密码文本
-    private val _forgetText = MutableLiveData(forgetPasswordLogin)
-    val forgetText: LiveData<String> get() = _forgetText
 
     //监控登录结果
     private val _loginResult = MutableLiveData<Result<LoginResponse>>()
@@ -59,7 +33,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private var apiService: HttpService
 
     init {
-        //初始化 Rerofit
+        //初始化 Retrofit
         val retrofit = Retrofit.Builder()
             .baseUrl(Constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -75,9 +49,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = apiService.login(nameOrEmail, password).execute()
-                if (response.isSuccessful) {
+                if (response.isSuccessful && response.body() != null) {
                     // 登录成功，更新 LiveData
-                    _loginResult.postValue(Result.success(response.body()) as Result<LoginResponse>?)
+                    val loginResponse = response.body()!!
+                    _loginResult.postValue(Result.success(loginResponse))
                 } else {
                     // 登录失败，更新 LiveData
                     _loginResult.postValue(Result.failure(Exception("Login failed with status: ${response.code()}")))
@@ -87,22 +62,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 _loginResult.postValue(Result.failure(e))
             }
         }
-    }
-
-    //改变为login视图
-    fun switchToLoginMode() {
-        _isLoginMode.value = true
-        _hintUsername.value = hintUsernameLogin
-        _hintPassword.value = hintPasswordLogin
-        _forgetText.value = forgetPasswordLogin
-    }
-
-    //改变Register视图
-    fun switchToRegisterMode() {
-        _isLoginMode.value = false
-        _hintUsername.value = hintUsernameRegister
-        _hintPassword.value = hintPasswordRegister
-        _forgetText.value = forgetPasswordRegister
     }
 
 }
