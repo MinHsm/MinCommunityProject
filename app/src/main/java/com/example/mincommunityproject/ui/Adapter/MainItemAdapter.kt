@@ -1,6 +1,7 @@
 package com.example.mincommunityproject.ui.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mincommunityproject.R
 import com.example.mincommunityproject.databinding.ViewhodelMainItemBinding
 import com.example.mincommunityproject.model.MainItem
+import com.example.mincommunityproject.ui.Activity.DetailsActivity
+
 /**
  * 主页面条目适配器
  * @author ming
@@ -41,6 +44,21 @@ class MainItemAdapter(private val context: Context, private val itemList: List<M
 
     inner class ViewHolder(private val binding: ViewhodelMainItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val clickedItem = itemList[position]
+                    // 启动DetailActivity并传递数据
+                    val intent = Intent(context, DetailsActivity::class.java).apply {
+                        putExtra("TIME_ID", "假设有个id字段")
+                    }
+                    context.startActivity(intent)
+                }
+            }
+        }
+
         fun bind(item: MainItem) {
             binding.mItem = item
             binding.executePendingBindings()

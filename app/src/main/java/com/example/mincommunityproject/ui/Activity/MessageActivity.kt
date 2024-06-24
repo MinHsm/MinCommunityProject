@@ -15,12 +15,13 @@ import com.example.mincommunityproject.model.CollectUserModel
 import com.example.mincommunityproject.model.MsgItemModel
 import com.example.mincommunityproject.ui.Adapter.MsgItemAdapter
 import com.example.mincommunityproject.viewmodel.MessageViewModel
+
 /**
  * 消息页面
  * @author Min
  * @time 2024/6/2 20:35
  */
-class MessageActivity : AppCompatActivity() {
+class MessageActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMessageBinding
     private val msgItemAdapter by lazy { MsgItemAdapter() }
@@ -80,6 +81,5 @@ class MessageActivity : AppCompatActivity() {
             }
         }
     }
-
 
 }

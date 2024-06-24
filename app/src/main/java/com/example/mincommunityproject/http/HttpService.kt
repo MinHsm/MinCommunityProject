@@ -18,4 +18,7 @@ interface HttpService {
         @Field("nameOrEmail") nameOrEmail: String,
         @Field("password") password: String
     ): Call<LoginResponse>
+
+    @FormUrlEncoded
+    fun sendCode()
 }

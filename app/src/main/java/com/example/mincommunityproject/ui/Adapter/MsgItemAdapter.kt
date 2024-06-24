@@ -1,6 +1,5 @@
 package com.example.mincommunityproject.ui.Adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -9,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mincommunityproject.databinding.ViewholderMsgItemBinding
 import com.example.mincommunityproject.model.MsgItemModel
+
 /**
  * 消息页面条目适配器
  * @author ming
  * @time 2024/6/3 09:16
  */
-class MsgItemAdapter : RecyclerView.Adapter<MsgItemAdapter.ViewHolder>() {
+class MsgItemAdapter: RecyclerView.Adapter<MsgItemAdapter.ViewHolder>() {
 
     // ViewHolder内部类，用于绑定ViewholderMsgItemBinding
     inner class ViewHolder(val binding: ViewholderMsgItemBinding) :
@@ -50,6 +50,7 @@ class MsgItemAdapter : RecyclerView.Adapter<MsgItemAdapter.ViewHolder>() {
         Glide.with(context)
             .load(resourceId)
             .into(holder.binding.msgItemImg)
+
     }
 
     // 差异回调用于比较旧项和新项
