@@ -1,5 +1,7 @@
 package com.example.mincommunityproject.ui.Adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -8,17 +10,33 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mincommunityproject.databinding.ViewholderMsgItemBinding
 import com.example.mincommunityproject.model.MsgItemModel
+import com.example.mincommunityproject.ui.Activity.ChatActivity
+import com.example.mincommunityproject.ui.Activity.DetailsActivity
 
 /**
  * 消息页面条目适配器
  * @author ming
  * @time 2024/6/3 09:16
  */
-class MsgItemAdapter: RecyclerView.Adapter<MsgItemAdapter.ViewHolder>() {
+class MsgItemAdapter(private val context: Context) :
+    RecyclerView.Adapter<MsgItemAdapter.ViewHolder>() {
 
     // ViewHolder内部类，用于绑定ViewholderMsgItemBinding
     inner class ViewHolder(val binding: ViewholderMsgItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+        RecyclerView.ViewHolder(binding.root){
+            init {
+                binding.root.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION){
+                        // 启动DetailActivity并传递数据
+                        val intent = Intent(context, ChatActivity::class.java).apply {
+                            putExtra("TIME_ID", "假设有个id字段")
+                        }
+                        context.startActivity(intent)
+                    }
+                }
+            }
+        }
 
     // 创建ViewHolder的方法
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

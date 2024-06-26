@@ -24,7 +24,7 @@ import com.example.mincommunityproject.viewmodel.MessageViewModel
 class MessageActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMessageBinding
-    private val msgItemAdapter by lazy { MsgItemAdapter() }
+    private val msgItemAdapter by lazy { MsgItemAdapter(this) }
     private lateinit var viewModel: MessageViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
